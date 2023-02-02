@@ -50,7 +50,9 @@ public class Empresa {
 
         for (int nemple = 0; nemple < empleados.length; nemple++) {
             nombre = Alfanumericos.pedirString("Nombre del empleado");
-            codProvincia = pedirProvincia();
+           // codProvincia = pedirProvincia();
+          nombreProvincias();
+           codProvincia=Numeros.pedirNumeroEntero("",0, provincias.length-1);
             ventas = Numeros.pedirNumeroReal("VENTAS", 0);
             empleados[nemple] = new Empleado(nombre, codProvincia, ventas);
 
@@ -89,4 +91,11 @@ public class Empresa {
         return codigo;
     }
 
+    private void nombreProvincias(){
+        System.out.println("codigo---Nombre");
+        for ( int p=0; p< provincias.length; p++)
+        {
+            System.out.println(p + "--"+provincias[p].getDenominacion());
+        }
+    }
 }
