@@ -9,9 +9,9 @@ package ej4arrays;
  * @author dam
  */
 public class Empleado {
-    String nombre;
-    int codProvincia;
-    float ventas;
+    private String nombre;
+    private int codProvincia;
+    private float ventas;
 
     public Empleado() {
     }
@@ -21,6 +21,19 @@ public class Empleado {
         this.codProvincia = codProvincia;
         this.ventas = ventas;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCodProvincia() {
+        return codProvincia;
+    }
+
+    public float getVentas() {
+        return ventas;
+    }
+    
     
     
     

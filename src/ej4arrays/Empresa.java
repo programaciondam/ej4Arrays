@@ -98,4 +98,48 @@ public class Empresa {
             System.out.println(p + "--"+provincias[p].getDenominacion());
         }
     }
+    
+    public void informe(){
+        int codPro;
+        float importe,importeComision;
+        int posicion;
+        System.out.println("NOMBRE PROVINCIA IMPORTE"
+                + " SUELDOBASE IMPORTE COMISION SUELDO");
+        for( int nemple=0; nemple<empleados.length; nemple++)
+        {
+            codPro=empleados[nemple].getCodProvincia();
+            posicion=buscarComision(empleados[nemple].getVentas());
+            if (posicion !=-1){
+                importeComision=
+                        comisiones[posicion].getPorcentaje()*
+                        empleados[nemple].getVentas();
+            }
+            else{
+                importeComision=0;
+            }
+            importe=provincias[codPro].getsBase()+importeComision;
+            System.out.print(empleados[nemple].getNombre());
+            System.out.print("\t"+provincias[codPro].getDenominacion());
+            System.out.print("\t"+ empleados[nemple].getVentas());
+            System.out.print("\t"+provincias[codPro].getsBase());
+             System.out.print("\t"+ importeComision);
+              System.out.println("\t"+importe);
+        }
+    }
+     private int buscarComision(float ventas) {
+        int posicion = 0;
+        boolean encontrado = false;
+        while (!encontrado && posicion < comisiones.length) {
+
+            if (ventas > comisiones[posicion].getImporte()) {
+                posicion++;
+            } else {
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            posicion = -1;
+        }
+        return posicion;
+    }
 }

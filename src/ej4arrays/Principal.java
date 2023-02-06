@@ -23,6 +23,7 @@ public class Principal {
         miEmpresa=new Empresa(nempleados);
       //  miEmpresa.inicializar();
       miEmpresa.introducirEmpleados();
+      miEmpresa.informe();
     }
     
 }
